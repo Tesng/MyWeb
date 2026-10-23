@@ -31,13 +31,13 @@ window.SITE = {
 
   about: {
     zh: [
-      "成功大學機械工程學系畢業，目前就讀清華大學電機工程學系碩士班。大學期間在自動控制、系統建模與電腦視覺打下理論基礎，並在機械專題中實際把馬達建模的知識用於解決機器人的轉速同步問題。",
-      "透過專題中的無線遙控經驗，我開始對訊號在系統中的傳輸與處理產生濃厚興趣，因此跨領域進入電機所，希望整合控制與通訊，設計更穩定、高效能的自主系統。",
+      "成功大學機械工程學系畢業，目前就讀清華大學電機工程學系碩士班。大學期間修習自動控制與系統建模相關課程、自學電腦視覺，並在機械專題中實際把馬達建模的知識用於解決機器人的轉速同步問題。專題實作課程後，我對機器人的機構和馬達控制有了更多的了解。",
+      "在 AI 的浪潮下，我開始思考要如何讓具身智慧（Embodied AI）結合大學所學的機器人領域知識，於是我在申請研究所時很幸運地找到了兩者的完美交集 VSLab，未來的研究主題也會以 VLA 為主。",
       "課業之外，我從國中音樂班開始學鋼琴，大學擔任鋼琴社教學長；也喜歡學語言，除了英文之外也學過日文與法文。",
     ],
     en: [
-      "I graduated in Mechanical Engineering from National Cheng Kung University (NCKU) and am now pursuing an M.S. in Electrical Engineering at National Tsing Hua University (NTHU). My undergraduate studies gave me a solid foundation in automatic control, system modeling and computer vision.",
-      "Building the robot's wireless remote control sparked my interest in how signals are transmitted and processed within a system. That led me across disciplines into EE, where I aim to combine control and communication to build more robust, high-performance autonomous systems.",
+      "I graduated in Mechanical Engineering from National Cheng Kung University (NCKU) and am now pursuing an M.S. in Electrical Engineering at National Tsing Hua University (NTHU). As an undergraduate I took courses in automatic control and system modeling and self-studied computer vision, and in my capstone project I applied motor modeling to solve the robot's speed-synchronization problem. The hands-on capstone gave me a deeper understanding of robot mechanisms and motor control.",
+      "With the rapid rise of AI, I began thinking about how to bring embodied AI together with the robotics knowledge I gained as an undergraduate. When applying to graduate school, I was fortunate to find VSLab, a perfect intersection of the two, and my research going forward will focus on VLA (Vision-Language-Action) models.",
       "Outside the lab I have played piano since my middle-school music program and served as Head of Teaching for the NCKU Piano Club. I also love learning languages: besides English, I have studied Japanese and French.",
     ],
   },
@@ -79,7 +79,6 @@ window.SITE = {
       logo: "assets/ncku-logo.png",
       details: [
         { zh: "累計總平均 81.49，班排名 11 / 59（前 18.6%）", en: "Cumulative average 81.49; class rank 11 / 59 (top 18.6%)" },
-        { zh: "相關修課：工程數學、線性代數、自動控制、系統建模與控制；另於電機系修習通訊相關課程", en: "Relevant coursework: Engineering Mathematics, Linear Algebra, Automatic Control, System Modeling & Control; communication courses taken in the EE department" },
       ],
     },
   ],
@@ -105,7 +104,7 @@ window.SITE = {
       points: [
         {
           zh: "使用 SolidWorks 設計整隻機器人的足部連桿機構。",
-          en: "Designed the robot's leg linkage mechanism in SolidWorks.",
+          en: "Designed the leg linkage mechanism for the entire robot in SolidWorks.",
         },
         {
           zh: "<strong>解決馬達轉速不同步：</strong>發現相同電壓下兩顆馬達轉速不同，利用課程所學計算各馬達所需的補償電壓，讓兩側腿部轉速同步。",
@@ -130,7 +129,7 @@ window.SITE = {
       role: "",
       points: [
         {
-          zh: '行政院晶創計劃 子計畫四 <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">孫民教授</a>團隊。',
+          zh: '行政院晶創計畫 子計畫四 <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">孫民教授</a>團隊。',
           en: 'Executive Yuan\'s Taiwan Chip-based Industrial Innovation Program (Taiwan CbI), Sub-project 4 — <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">Prof. Min Sun</a>\'s team.',
         },
         // { zh: "做了什麼、解決了什麼問題", en: "What I did and the problem it solved" },
@@ -188,7 +187,7 @@ window.SITE = {
   ],
 
   selfLearning: [
-    { name: "Deep Learning for Computer Vision (CS231n)", by: { zh: "史丹佛大學", en: "Stanford" } },
+    { name: "Deep Learning for Computer Vision (CS231n)", by: { zh: "史丹佛大學", en: "Stanford University" } },
     { name: { zh: "生成式 AI 與機器學習導論", en: "Introduction to Generative AI & ML" }, by: { zh: "台灣大學", en: "National Taiwan University" } },
     { name: { zh: "機器學習", en: "Machine Learning" }, by: { zh: "台灣大學", en: "National Taiwan University" } },
   ],
