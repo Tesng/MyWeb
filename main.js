@@ -7,7 +7,6 @@
     education: { zh: "學歷", en: "Education" },
     publications: { zh: "研究成果", en: "Publications" },
     projects: { zh: "專案經歷", en: "Projects" },
-    courses: { zh: "修課心得", en: "Coursework" },
     skills: { zh: "技能", en: "Skills" },
     selfLearning: { zh: "自學課程", en: "Self-Learning" },
     activities: { zh: "活動與社團", en: "Activities" },
@@ -65,6 +64,13 @@
       nav.push(key);
     };
 
+    if (has(S.skills)) {
+      add("skills", `<div class="skill-groups">${S.skills
+        .map((g) => `<div class="skill-group"><h3>${esc(t(g.group))}</h3><div class="tags">${g.items
+          .map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div></div>`)
+        .join("")}</div>`);
+    }
+
     if (S.about) {
       const paras = Array.isArray(S.about[lang]) ? S.about[lang] : S.about.zh;
       add("about", `<div class="prose">${paras.map((x) => `<p>${x}</p>`).join("")}</div>`);
@@ -108,19 +114,6 @@
             ${has(p.tags) ? `<div class="tags">${p.tags.map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div>` : ""}
           </article>`)
         .join(""));
-    }
-
-    if (has(S.courses)) {
-      add("courses", `<dl class="courses">${S.courses
-        .map((c) => `<div class="course"><dt>${esc(t(c.name))}</dt><dd>${t(c.note)}</dd></div>`)
-        .join("")}</dl>`);
-    }
-
-    if (has(S.skills)) {
-      add("skills", `<div class="skill-groups">${S.skills
-        .map((g) => `<div class="skill-group"><h3>${esc(t(g.group))}</h3><div class="tags">${g.items
-          .map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div></div>`)
-        .join("")}</div>`);
     }
 
     // 自學、活動、語言 放在同一列

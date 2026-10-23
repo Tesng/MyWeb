@@ -131,31 +131,6 @@ window.SITE = {
     },
   ],
 
-  /* 修課心得 */
-  courses: [
-    {
-      name: { zh: "工程數學、線性代數", en: "Engineering Mathematics & Linear Algebra" },
-      note: {
-        zh: "以 Laplace Transform 將微分方程轉為線性系統（RLC 電路、彈簧阻尼系統），並用矩陣性質求解或降低運算複雜度。",
-        en: "Turned differential equations into linear systems with the Laplace transform (RLC circuits, mass–spring–damper) and used matrix properties to solve them or reduce computation.",
-      },
-    },
-    {
-      name: { zh: "自動控制", en: "Automatic Control" },
-      note: {
-        zh: "利用 Root Locus、Bode Plot、Nyquist Plot 預測與控制 LTI 系統行為，並以 MATLAB 計算與繪圖。",
-        en: "Predicted and shaped LTI system behavior with root locus, Bode and Nyquist plots, computing and plotting in MATLAB.",
-      },
-    },
-    {
-      name: { zh: "系統建模與控制", en: "System Modeling & Control" },
-      note: {
-        zh: "學習馬達建模，將方程式轉為方塊圖，並加入電流、速度、位置控制器；這些知識直接應用在機械專題。",
-        en: "Modeled DC motors as block diagrams and added current, speed and position controllers — knowledge I applied directly in my capstone project.",
-      },
-    },
-  ],
-
   skills: [
     { group: { zh: "領域", en: "Domains" }, items: ["Automatic Control", "Computer Vision", "Machine Learning", "Robotics"] },
     { group: { zh: "程式與工具", en: "Programming & Tools" }, items: ["MATLAB / Simulink", "C++", "Python", "SolidWorks", "Arduino"] },
