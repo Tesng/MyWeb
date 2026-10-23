@@ -18,8 +18,8 @@ window.SITE = {
       en: "M.S. Student, Electrical Engineering @ NTHU",
     },
     tagline: {
-      zh: "自動控制 × 訊號處理 × 通訊系統",
-      en: "Automatic Control × Signal Processing × Communication Systems",
+      zh: "機器人 × 機器學習 ",
+      en: "Robotics × Machine Learning ",
     },
     photo: "assets/photo.jpg",
     email: "keinett9494@gmail.com",
@@ -36,7 +36,7 @@ window.SITE = {
       "課業之外，我從國中音樂班開始學鋼琴，大學擔任鋼琴社教學長；也喜歡學語言，除了英文之外也學過日文與法文。",
     ],
     en: [
-      "I graduated in Mechanical Engineering from National Cheng Kung University (NCKU) and am now pursuing an M.S. in Electrical Engineering at National Tsing Hua University (NTHU). My undergraduate studies gave me a solid foundation in automatic control, system modeling and computer vision, which I applied in my capstone project to solve a motor-speed synchronization problem on a legged robot.",
+      "I graduated in Mechanical Engineering from National Cheng Kung University (NCKU) and am now pursuing an M.S. in Electrical Engineering at National Tsing Hua University (NTHU). My undergraduate studies gave me a solid foundation in automatic control, system modeling and computer vision.",
       "Building the robot's wireless remote control sparked my interest in how signals are transmitted and processed within a system. That led me across disciplines into EE, where I aim to combine control and communication to build more robust, high-performance autonomous systems.",
       "Outside the lab I have played piano since my middle-school music program and served as Head of Teaching for the NCKU Piano Club. I also love learning languages: besides English, I have studied Japanese and French.",
     ],
@@ -71,7 +71,7 @@ window.SITE = {
   education: [
     {
       school: { zh: "國立清華大學", en: "National Tsing Hua University" },
-      degree: { zh: "電機工程學系 碩士班（系統組）", en: "M.S. in Electrical Engineering (Systems)" },
+      degree: { zh: "電機工程學系 碩士班", en: "M.S. in Electrical Engineering" },
       period: { zh: "2026 – 至今", en: "2026 – Present" },
       logo: "",
       details: [
@@ -82,7 +82,7 @@ window.SITE = {
     {
       school: { zh: "國立成功大學", en: "National Cheng Kung University" },
       degree: { zh: "機械工程學系 學士", en: "B.S. in Mechanical Engineering" },
-      period: "2023 – 2026",
+      period: { zh: "2022 – 2026", en: "2022 – 2026" },
       details: [
         { zh: "累計總平均 81.49，班排名 11 / 59（前 18.6%）", en: "Cumulative average 81.49; class rank 11 / 59 (top 18.6%)" },
         { zh: "相關修課：工程數學、線性代數、自動控制、系統建模與控制；另於電機系修習通訊相關課程", en: "Relevant coursework: Engineering Mathematics, Linear Algebra, Automatic Control, System Modeling & Control; communication courses taken in the EE department" },
@@ -134,6 +134,14 @@ window.SITE = {
   skills: [
     { group: { zh: "領域", en: "Domains" }, items: ["Automatic Control", "Computer Vision", "Machine Learning", "Robotics"] },
     { group: { zh: "程式與工具", en: "Programming & Tools" }, items: ["MATLAB / Simulink", "C++", "Python", "SolidWorks", "Arduino"] },
+    {
+      group: { zh: "語言", en: "Languages" },
+      items: [
+        { zh: "中文（母語）", en: "Mandarin (Native)" },
+        { zh: "英文（TOEIC 830）", en: "English (TOEIC 830)" },
+        { zh: "日文（JLPT N3）", en: "Japanese (JLPT N3)" },
+      ],
+    },
   ],
 
   selfLearning: [
@@ -146,11 +154,5 @@ window.SITE = {
     { name: { zh: "成大鋼琴社 教學長", en: "Head of Teaching, NCKU Piano Club" }, desc: { zh: "規劃社課與籌辦期末成果發表會", en: "Planned weekly lessons and organized the end-of-term recital" } },
     { name: { zh: "成大第 16 屆職涯導師計畫（CCP）", en: "NCKU 16th Career Coaching Program (CCP)" }, desc: "" },
     { name: "DISCO HI-TEC TAIWAN D-campus", desc: "" },
-  ],
-
-  languages: [
-    { name: { zh: "中文", en: "Mandarin" }, level: { zh: "母語", en: "Native" } },
-    { name: { zh: "英文", en: "English" }, level: { zh: "TOEIC 830", en: "TOEIC 830" } },
-    { name: { zh: "日文", en: "Japanese" }, level: { zh: "JLPT N3", en: "JLPT N3" } },
   ],
 };

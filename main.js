@@ -10,7 +10,6 @@
     skills: { zh: "技能", en: "Skills" },
     selfLearning: { zh: "自學課程", en: "Self-Learning" },
     activities: { zh: "活動與社團", en: "Activities" },
-    languages: { zh: "語言", en: "Languages" },
     more: { zh: "更多", en: "More" },
     email: { zh: "Email", en: "Email" },
     cv: { zh: "下載履歷", en: "Download CV" },
@@ -116,7 +115,7 @@
         .join(""));
     }
 
-    // 自學、活動、語言 放在同一列
+    // 自學、活動 放在同一列
     const mini = [];
     if (has(S.selfLearning)) {
       mini.push(section("selfLearning", `<ul class="plain">${S.selfLearning
@@ -126,18 +125,14 @@
       mini.push(section("activities", `<ul class="plain">${S.activities
         .map((x) => `<li><strong>${esc(t(x.name))}</strong>${t(x.desc) ? `<span>${esc(t(x.desc))}</span>` : ""}</li>`).join("")}</ul>`, "mini"));
     }
-    if (has(S.languages)) {
-      mini.push(section("languages", `<ul class="plain">${S.languages
-        .map((x) => `<li><strong>${esc(t(x.name))}</strong><span>${esc(t(x.level))}</span></li>`).join("")}</ul>`, "mini"));
-    }
     if (mini.length) {
       out.push(`<div class="mini-grid">${mini.join("")}</div>`);
-      nav.push(has(S.selfLearning) ? "selfLearning" : has(S.activities) ? "activities" : "languages");
+      nav.push(has(S.selfLearning) ? "selfLearning" : "activities");
     }
 
     $("sections").innerHTML = out.join("");
     $("nav").innerHTML = nav
-      .map((k) => `<a href="#${k}">${esc(t(["selfLearning", "activities", "languages"].includes(k) ? UI.more : UI[k]))}</a>`)
+      .map((k) => `<a href="#${k}">${esc(t(["selfLearning", "activities"].includes(k) ? UI.more : UI[k]))}</a>`)
       .join("");
   }
 

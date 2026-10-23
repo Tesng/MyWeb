@@ -179,7 +179,7 @@ h3 { font-size: 17px; font-weight: 600; }
 }
 
 .skill-groups { display: grid; gap: 20px; }
-@media (min-width: 720px) { .skill-groups { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 720px) { .skill-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .skill-group h3 { font-size: 14px; color: var(--ink-3); font-weight: 600; }
 .skill-group .tags { margin-top: 10px; }
 
@@ -187,7 +187,7 @@ h3 { font-size: 17px; font-weight: 600; }
 .pubs p { margin: 4px 0 0; color: var(--ink-2); }
 
 .mini-grid { display: grid; gap: 0 32px; }
-@media (min-width: 720px) { .mini-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 720px) { .mini-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .mini-grid .section { border-bottom: 0; }
 .plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .plain li { display: flex; flex-direction: column; }
