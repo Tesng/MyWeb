@@ -14,8 +14,8 @@ window.SITE = {
     nameZh: "曾柏凱",
     nameEn: "Kyle Tseng",
     title: {
-      zh: "清華大學電機工程學系 碩士生",
-      en: "M.S. Student, Electrical Engineering @ NTHU",
+      zh: "清華大學電機工程學系 VSLab",
+      en: "VSLab, Electrical Engineering @ NTHU",
     },
     tagline: {
       zh: "機器人 × 機器學習 ",
@@ -52,28 +52,21 @@ window.SITE = {
       },
     },
     {
-      title: { zh: "訊號處理與通訊", en: "Signal Processing & Communication" },
+      title: { zh: "機器人與機器學習", en: "Robotics & ML" },
       desc: {
-        zh: "通訊與感測器訊號在系統中的傳輸、處理與變化，以及通訊技術如何優化控制與自主系統。",
-        en: "How communication and sensor signals propagate through systems, and how communication techniques can improve control and autonomous systems.",
-      },
-    },
-    {
-      title: { zh: "電腦視覺與機器學習", en: "Computer Vision & ML" },
-      desc: {
-        zh: "自學 Stanford CS231n 與台大機器學習、生成式 AI 課程。",
-        en: "Self-studied Stanford CS231n and NTU courses on Machine Learning and Generative AI.",
+        zh: "從機器人專題累積機構設計、馬達驅動與控制的實作經驗；並自學 Stanford CS231n 與台大機器學習課程，希望將學習方法應用於機器人的感知與控制。",
+        en: "Hands-on experience in mechanism design, motor actuation and control from my robot capstone; self-studied Stanford CS231n and NTU ML courses, aiming to apply learning methods to robot perception and control.",
       },
     },
   ],
 
-  /* 學歷：最新的放最上面 */
+  /* 學歷：最新的放最上面；logo 填校徽圖片路徑，留空就顯示圓點 */
   education: [
     {
       school: { zh: "國立清華大學", en: "National Tsing Hua University" },
       degree: { zh: "電機工程學系 碩士班", en: "M.S. in Electrical Engineering" },
       period: { zh: "2026 – 至今", en: "2026 – Present" },
-      logo: "",
+      logo: "assets/nthu-logo.png",
       details: [
         // 研究所開始後可以加入：指導教授、實驗室、修課等
         // { zh: "指導教授：○○○ 教授（○○○實驗室）", en: "Advisor: Prof. ○○○ (○○○ Lab)" },
@@ -83,6 +76,7 @@ window.SITE = {
       school: { zh: "國立成功大學", en: "National Cheng Kung University" },
       degree: { zh: "機械工程學系 學士", en: "B.S. in Mechanical Engineering" },
       period: { zh: "2022 – 2026", en: "2022 – 2026" },
+      logo: "assets/ncku-logo.png",
       details: [
         { zh: "累計總平均 81.49，班排名 11 / 59（前 18.6%）", en: "Cumulative average 81.49; class rank 11 / 59 (top 18.6%)" },
         { zh: "相關修課：工程數學、線性代數、自動控制、系統建模與控制；另於電機系修習通訊相關課程", en: "Relevant coursework: Engineering Mathematics, Linear Algebra, Automatic Control, System Modeling & Control; communication courses taken in the EE department" },
@@ -104,9 +98,9 @@ window.SITE = {
   /* 專案經歷：新的放最上面 */
   projects: [
     {
-      title: { zh: "自走機器人專題", en: "Legged Robot Capstone Project" },
+      title: { zh: "仿生獸足行機器人專題", en: "Bio-inspired Legged Robot Capstone Project" },
       org: { zh: "成大機械 · 機械專題", en: "NCKU ME · Capstone Project" },
-      period: "",
+      period: "2025/02 – 2025/06", // 大三下學期
       role: { zh: "負責：足部機構設計與控制", en: "Role: leg mechanism design & control" },
       points: [
         {
@@ -114,8 +108,8 @@ window.SITE = {
           en: "Designed the robot's leg linkage mechanism in SolidWorks.",
         },
         {
-          zh: "<strong>解決馬達轉速不同步：</strong>發現相同電壓下兩顆馬達轉速不同，利用「系統建模與控制」課程中無負載穩態下電壓與轉速的線性關係，計算各馬達所需的補償電壓，讓兩側腿部轉速同步。",
-          en: "<strong>Fixed motor speed mismatch:</strong> two motors ran at different speeds under the same voltage. Using the linear no-load steady-state voltage–speed relation from my System Modeling & Control course, I computed a compensation voltage for each motor to synchronize the legs.",
+          zh: "<strong>解決馬達轉速不同步：</strong>發現相同電壓下兩顆馬達轉速不同，利用課程所學計算各馬達所需的補償電壓，讓兩側腿部轉速同步。",
+          en: "<strong>Fixed motor speed mismatch:</strong> two motors ran at different speeds under the same voltage. Applying what I learned in coursework, I computed a compensation voltage for each motor to synchronize the legs on both sides.",
         },
         {
           zh: "<strong>開發無線遙控系統：</strong>自學微控制器與指令設定，以 Arduino PWM 調速，並透過無線方式遙控馬達。",
@@ -129,10 +123,48 @@ window.SITE = {
       ],
       link: "",
     },
+    {
+      title: { zh: "LEAP Hand 靈巧手抓取", en: "LEAP Hand Dexterous Grasping" },
+      org: "", // 例如 { zh: "清大電機 · ○○○實驗室", en: "NTHU EE · ○○○ Lab" }
+      period: { zh: "進行中", en: "Ongoing" },
+      role: "",
+      points: [
+        {
+          zh: '行政院晶創計劃 子計畫四 <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">孫民教授</a>團隊。',
+          en: 'Executive Yuan\'s Taiwan Chip-based Industrial Innovation Program (Taiwan CbI), Sub-project 4 — <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">Prof. Min Sun</a>\'s team.',
+        },
+        // { zh: "做了什麼、解決了什麼問題", en: "What I did and the problem it solved" },
+      ],
+      tags: ["Dexterous Hand", "ML", "VLA"],
+      // 影片：靜音自動循環播放，訪客可用播放列開聲音
+      video: { src: "assets/leapdemo.mp4", alt: { zh: "LEAP Hand 抓取展示", en: "LEAP Hand grasping demo" } },
+      images: [],
+      link: "",
+    },
+  ],
+
+  /* Something Interesting：條列式顯示在專案經歷下方；name 會連到 link（可留空），desc 可留空 */
+  interesting: [
+    {
+      name: "OmniGo",
+      desc: {
+        zh: "隨插即用的 Android GPS 虛擬定位工具，免 Root、免 ADB 指令，支援虛擬搖桿與路徑規劃。",
+        en: "A plug-and-play GPS location simulator for Android — no root or ADB commands needed, with a virtual joystick and path planning.",
+      },
+      link: "https://omnigo-website-seven.vercel.app/?page=home",
+    },
   ],
 
   skills: [
-    { group: { zh: "領域", en: "Domains" }, items: ["Automatic Control", "Computer Vision", "Machine Learning", "Robotics"] },
+    {
+      group: { zh: "領域", en: "Domains" },
+      items: [
+        { zh: "自動控制", en: "Automatic Control" },
+        { zh: "電腦視覺", en: "Computer Vision" },
+        { zh: "機器學習", en: "Machine Learning" },
+        { zh: "機器人", en: "Robotics" },
+      ],
+    },
     { group: { zh: "程式與工具", en: "Programming & Tools" }, items: ["MATLAB / Simulink", "C++", "Python", "SolidWorks", "Arduino"] },
     {
       group: { zh: "語言", en: "Languages" },
@@ -142,10 +174,21 @@ window.SITE = {
         { zh: "日文（JLPT N3）", en: "Japanese (JLPT N3)" },
       ],
     },
+    {
+      group: { zh: "個人特質", en: "Soft Skills" },
+      items: [
+        { zh: "成長型思維", en: "Growth Mindset" },
+        { zh: "解決問題", en: "Problem Solving" },
+        { zh: "團隊合作", en: "Collaboration" },
+        { zh: "領導力", en: "Leadership" },
+        { zh: "溝通表達", en: "Communication" },
+        { zh: "適應力", en: "Adaptability" },
+      ],
+    },
   ],
 
   selfLearning: [
-    { name: "Deep Learning for Computer Vision (CS231n)", by: "Stanford" },
+    { name: "Deep Learning for Computer Vision (CS231n)", by: { zh: "史丹佛大學", en: "Stanford" } },
     { name: { zh: "生成式 AI 與機器學習導論", en: "Introduction to Generative AI & ML" }, by: { zh: "台灣大學", en: "National Taiwan University" } },
     { name: { zh: "機器學習", en: "Machine Learning" }, by: { zh: "台灣大學", en: "National Taiwan University" } },
   ],

@@ -2,3 +2,6 @@
 Resume.pdf
 清大電機自傳.pdf
 *.docx
+
+# macOS 系統檔
+.DS_Store

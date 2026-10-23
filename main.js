@@ -7,10 +7,10 @@
     education: { zh: "學歷", en: "Education" },
     publications: { zh: "研究成果", en: "Publications" },
     projects: { zh: "專案經歷", en: "Projects" },
+    interesting: { zh: "有趣的東西", en: "Something Interesting" },
     skills: { zh: "技能", en: "Skills" },
     selfLearning: { zh: "自學課程", en: "Self-Learning" },
     activities: { zh: "活動與社團", en: "Activities" },
-    more: { zh: "更多", en: "More" },
     email: { zh: "Email", en: "Email" },
     cv: { zh: "下載履歷", en: "Download CV" },
     updated: { zh: "最後更新", en: "Last updated" },
@@ -56,34 +56,15 @@
   }
 
   function renderSections() {
-    const out = [];
-    const nav = [];
-    const add = (key, html, cls) => {
-      out.push(section(key, html, cls));
-      nav.push(key);
-    };
-
-    if (has(S.skills)) {
-      add("skills", `<div class="skill-groups">${S.skills
-        .map((g) => `<div class="skill-group"><h3>${esc(t(g.group))}</h3><div class="tags">${g.items
-          .map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div></div>`)
-        .join("")}</div>`);
-    }
-
-    if (S.about) {
-      const paras = Array.isArray(S.about[lang]) ? S.about[lang] : S.about.zh;
-      add("about", `<div class="prose">${paras.map((x) => `<p>${x}</p>`).join("")}</div>`);
-    }
-
-    if (has(S.interests)) {
-      add("interests", `<div class="cards">${S.interests
-        .map((i) => `<article class="card"><h3>${esc(t(i.title))}</h3><p>${t(i.desc)}</p></article>`)
-        .join("")}</div>`);
-    }
+    // 寬螢幕分兩欄：左欄放學歷、技能、自學、活動，右欄放其他區塊；窄螢幕改單欄，自學與活動排到最後
+    const side = [];
+    const main = [];
+    const add = (col, key, html, cls) => col.push(section(key, html, cls));
 
     if (has(S.education)) {
-      add("education", `<ol class="timeline">${S.education
-        .map((e) => `<li class="tl-item">
+      add(side, "education", `<ol class="timeline">${S.education
+        .map((e) => `<li class="tl-item${e.logo ? " has-logo" : ""}">
+            ${e.logo ? `<img class="tl-logo" src="${esc(e.logo)}" alt="" loading="lazy">` : ""}
             <div class="tl-head"><h3>${esc(t(e.school))}</h3><span class="period">${esc(t(e.period))}</span></div>
             <p class="sub">${esc(t(e.degree))}</p>
             ${has(e.details) ? `<ul class="bullets">${e.details.map((d) => `<li>${t(d)}</li>`).join("")}</ul>` : ""}
@@ -91,28 +72,60 @@
         .join("")}</ol>`);
     }
 
+    if (has(S.skills)) {
+      add(side, "skills", `<div class="skill-groups">${S.skills
+        .map((g) => `<div class="skill-group"><h3>${esc(t(g.group))}</h3><div class="tags">${g.items
+          .map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div></div>`)
+        .join("")}</div>`);
+    }
+
+    if (S.about) {
+      const paras = Array.isArray(S.about[lang]) ? S.about[lang] : S.about.zh;
+      add(main, "about", `<div class="prose">${paras.map((x) => `<p>${x}</p>`).join("")}</div>`);
+    }
+
+    if (has(S.interests)) {
+      add(main, "interests", `<div class="cards">${S.interests
+        .map((i) => `<article class="card"><h3>${esc(t(i.title))}</h3><p>${t(i.desc)}</p></article>`)
+        .join("")}</div>`);
+    }
+
     if (has(S.publications)) {
-      add("publications", `<ul class="pubs">${S.publications
+      add(main, "publications", `<ul class="pubs">${S.publications
         .map((p) => `<li><h3>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(t(p.title))}</a>` : esc(t(p.title))}</h3>
             <p class="sub">${esc(t(p.venue))}</p>${p.desc ? `<p>${t(p.desc)}</p>` : ""}</li>`)
         .join("")}</ul>`);
     }
 
     if (has(S.projects)) {
-      add("projects", S.projects
-        .map((p) => `<article class="project">
+      add(main, "projects", S.projects
+        .map((p) => {
+          // 單位、角色、內容都可以留空，留空的部分不顯示
+          const sub = [t(p.org), t(p.role)].filter(Boolean).map(esc).join(" · ");
+          const video = p.video ? `<figure class="project-video">
+              <video src="${esc(p.video.src)}" autoplay muted loop playsinline controls aria-label="${esc(t(p.video.alt))}"></video>
+              ${t(p.video.alt) ? `<figcaption>${esc(t(p.video.alt))}</figcaption>` : ""}</figure>` : "";
+          const gallery = has(p.images) ? `<div class="gallery">${p.images
+            .map((im) => `<figure><img src="${esc(im.src)}" alt="${esc(t(im.alt))}" loading="lazy"><figcaption>${esc(t(im.alt))}</figcaption></figure>`)
+            .join("")}</div>` : "";
+          return `<article class="project">
             <div class="tl-head"><h3>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(t(p.title))}</a>` : esc(t(p.title))}</h3>
               <span class="period">${esc(t(p.period))}</span></div>
-            <p class="sub">${esc(t(p.org))}${p.role ? ` · ${esc(t(p.role))}` : ""}</p>
-            <div class="project-body">
+            ${sub ? `<p class="sub">${sub}</p>` : ""}
+            ${has(p.points) || video || gallery ? `<div class="project-body">
               <ul class="bullets">${(p.points || []).map((x) => `<li>${t(x)}</li>`).join("")}</ul>
-              ${has(p.images) ? `<div class="gallery">${p.images
-                .map((im) => `<figure><img src="${esc(im.src)}" alt="${esc(t(im.alt))}" loading="lazy"><figcaption>${esc(t(im.alt))}</figcaption></figure>`)
-                .join("")}</div>` : ""}
-            </div>
+              ${video || gallery ? `<div class="project-media">${video}${gallery}</div>` : ""}
+            </div>` : ""}
             ${has(p.tags) ? `<div class="tags">${p.tags.map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div>` : ""}
-          </article>`)
+          </article>`;
+        })
         .join(""));
+    }
+
+    if (has(S.interesting)) {
+      add(main, "interesting", `<ul class="bullets">${S.interesting
+        .map((x) => `<li>${x.link ? `<a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(t(x.name))}</a>` : esc(t(x.name))}${t(x.desc) ? ` — ${t(x.desc)}` : ""}</li>`)
+        .join("")}</ul>`);
     }
 
     // 自學、活動 放在同一列
@@ -126,14 +139,12 @@
         .map((x) => `<li><strong>${esc(t(x.name))}</strong>${t(x.desc) ? `<span>${esc(t(x.desc))}</span>` : ""}</li>`).join("")}</ul>`, "mini"));
     }
     if (mini.length) {
-      out.push(`<div class="mini-grid">${mini.join("")}</div>`);
-      nav.push(has(S.selfLearning) ? "selfLearning" : "activities");
+      side.push(`<div class="mini-grid">${mini.join("")}</div>`);
     }
 
-    $("sections").innerHTML = out.join("");
-    $("nav").innerHTML = nav
-      .map((k) => `<a href="#${k}">${esc(t(["selfLearning", "activities"].includes(k) ? UI.more : UI[k]))}</a>`)
-      .join("");
+    $("sections").innerHTML =
+      (side.length ? `<aside class="side-col">${side.join("")}</aside>` : "") +
+      `<div class="main-col">${main.join("")}</div>`;
   }
 
   function renderFooter() {
