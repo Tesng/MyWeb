@@ -24,7 +24,7 @@ window.SITE = {
     photo: "assets/photo.jpg",
     email: "keinett9494@gmail.com",
     // 有的話把網址填進引號裡，沒有就保持空字串，按鈕會自動隱藏
-    github: "https://tesng.github.io/MyWeb/",
+    github: "https://github.com/Tesng",
     linkedin: "",
     cv: "", // 例如 "assets/Resume.pdf"
   },
