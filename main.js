@@ -17,12 +17,11 @@
     updated: { zh: "最後更新", en: "Last updated" },
   };
 
-  let lang = "zh";
+  // 預設英文；訪客按過切換按鈕後會記住他的選擇
+  let lang = "en";
   try {
-    lang = localStorage.getItem("lang") || (navigator.language.startsWith("zh") ? "zh" : "en");
-  } catch (e) {
-    lang = navigator.language && navigator.language.startsWith("zh") ? "zh" : "en";
-  }
+    lang = localStorage.getItem("lang") || "en";
+  } catch (e) {}
 
   const t = (v) => (v == null ? "" : typeof v === "string" ? v : v[lang] || v.zh || v.en || "");
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -44,8 +43,9 @@
     const p = S.profile;
     $("photo").src = p.photo;
     $("photo").alt = `${p.nameZh} ${p.nameEn}`;
-    $("nameZh").textContent = p.nameZh;
-    $("nameEn").textContent = p.nameEn;
+    // 大字顯示目前語言的名字，小字顯示另一種
+    $("nameZh").textContent = lang === "en" ? p.nameEn : p.nameZh;
+    $("nameEn").textContent = lang === "en" ? p.nameZh : p.nameEn;
     $("title").textContent = t(p.title);
     $("tagline").textContent = t(p.tagline);
     const links = [];
