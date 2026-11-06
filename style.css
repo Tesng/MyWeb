@@ -167,9 +167,9 @@ h3 { font-size: 17px; font-weight: 600; }
 .project-body { display: grid; gap: 16px; }
 @media (min-width: 720px) {
   .project { padding: 24px 28px; }
-  .project-body { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: start; }
 }
-.gallery { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 10px; }
+.gallery { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.project-video + .gallery { margin-top: 10px; }
 .gallery figure { margin: 0; }
 .gallery img {
   width: 100%; aspect-ratio: 1; object-fit: cover;
@@ -177,7 +177,7 @@ h3 { font-size: 17px; font-weight: 600; }
 }
 .gallery figcaption, .project-video figcaption { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; text-align: center; }
 /* 影片依原始比例縮放，直式影片最高 460px，置中 */
-.project-video { margin: 10px 0 0; }
+.project-video { margin: 0; }
 .project-video video {
   display: block; width: auto; height: auto; max-width: 100%; max-height: 460px; margin: 0 auto;
   border-radius: 10px; border: 1px solid var(--line); background: #000;

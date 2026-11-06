@@ -113,8 +113,8 @@
               <span class="period">${esc(t(p.period))}</span></div>
             ${sub ? `<p class="sub">${sub}</p>` : ""}
             ${has(p.points) || video || gallery ? `<div class="project-body">
-              <ul class="bullets">${(p.points || []).map((x) => `<li>${t(x)}</li>`).join("")}</ul>
               ${video || gallery ? `<div class="project-media">${video}${gallery}</div>` : ""}
+              <ul class="bullets">${(p.points || []).map((x) => `<li>${t(x)}</li>`).join("")}</ul>
             </div>` : ""}
             ${has(p.tags) ? `<div class="tags">${p.tags.map((x) => `<span class="tag">${esc(t(x))}</span>`).join("")}</div>` : ""}
           </article>`;

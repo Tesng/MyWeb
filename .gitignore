@@ -1,6 +1,8 @@
 # 原始履歷 / 自傳 PDF 含電話等個資，不上傳
 Resume.pdf
 清大電機自傳.pdf
+機專報告.pdf
+*.pdf
 *.docx
 
 # macOS 系統檔

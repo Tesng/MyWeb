@@ -75,7 +75,7 @@ window.SITE = {
     {
       school: { zh: "國立成功大學", en: "National Cheng Kung University" },
       degree: { zh: "機械工程學系 學士", en: "B.S. in Mechanical Engineering" },
-      period: { zh: "2022 – 2026", en: "2022 – 2026" },
+      period: { zh: "2023 – 2026", en: "2023 – 2026" },
       logo: "assets/ncku-logo.png",
       details: [
         { zh: "累計總平均 81.49，班排名 11 / 59（前 18.6%）", en: "Cumulative average 81.49; class rank 11 / 59 (top 18.6%)" },
@@ -97,25 +97,37 @@ window.SITE = {
   /* 專案經歷：新的放最上面 */
   projects: [
     {
-      title: { zh: "仿生獸足行機器人專題", en: "Bio-inspired Legged Robot Capstone Project" },
-      org: { zh: "成大機械 · 機械專題", en: "NCKU ME · Capstone Project" },
+      title: { zh: "仿生獸足型取物機器人", en: "Bio-inspired Legged Pick-and-Place Robot" },
+      org: { zh: "成大機械 · 機械專題實作（6 人團隊）", en: "NCKU ME · Capstone Project (6-person team)" },
       period: "2025/02 – 2025/06", // 大三下學期
-      role: { zh: "負責：足部機構設計與控制", en: "Role: leg mechanism design & control" },
+      role: { zh: "負責：足部機構與驅動系統", en: "Role: leg mechanism & drive system" },
       points: [
         {
-          zh: "使用 SolidWorks 設計整隻機器人的足部連桿機構。",
-          en: "Designed the leg linkage mechanism for the entire robot in SolidWorks.",
+          zh: "團隊打造遙控足型取物機器人：以仿生獸（Jansen 連桿）八足底盤行走，並配置四組夾爪，一趟就能夾取多個零件。",
+          en: "Our team built a remote-controlled legged pick-and-place robot: an eight-legged, Strandbeest-style (Jansen linkage) chassis for walking, with four grippers to pick up multiple parts in one trip.",
         },
         {
-          zh: "<strong>解決馬達轉速不同步：</strong>發現相同電壓下兩顆馬達轉速不同，利用課程所學計算各馬達所需的補償電壓，讓兩側腿部轉速同步。",
-          en: "<strong>Fixed motor speed mismatch:</strong> two motors ran at different speeds under the same voltage. Applying what I learned in coursework, I computed a compensation voltage for each motor to synchronize the legs on both sides.",
+          zh: "<strong>足部機構設計：</strong>以 SolidWorks 設計八足底盤，將兩組 Jansen 連桿足部模組等比放大 1.5 倍，以正齒輪組傳動（模數 3、壓力角 20°、齒比 14:24），並繪製完整工程圖。",
+          en: "<strong>Leg mechanism design:</strong> designed the eight-legged chassis in SolidWorks — two Jansen-linkage leg modules scaled up 1.5×, driven by a spur-gear train (module 3, 20° pressure angle, 14:24 ratio) — with a full set of engineering drawings.",
         },
         {
-          zh: "<strong>開發無線遙控系統：</strong>自學微控制器與指令設定，以 Arduino PWM 調速，並透過無線方式遙控馬達。",
-          en: "<strong>Built the wireless remote control:</strong> self-taught microcontroller programming and command configuration, driving motors with Arduino PWM over a wireless link.",
+          zh: "<strong>加工與組裝：</strong>以雷射切割 5 mm 壓克力製作足部零件，搭配金屬軸、法蘭滾珠軸承與黃銅聯軸器組裝。",
+          en: "<strong>Fabrication:</strong> laser-cut the leg parts from 5 mm acrylic and assembled them on metal shafts with flanged ball bearings and brass shaft couplers.",
+        },
+        {
+          zh: "<strong>模擬與檢討：</strong>製作前以 SolidWorks Motion Study 模擬足部運動；完成後檢討行走不穩的原因，追溯到雷射切割功率不足造成齒形變形，以及理想化模擬沒有反映出的過大步幅。",
+          en: "<strong>Simulation & post-build review:</strong> ran a SolidWorks Motion Study on the leg assembly before fabrication; afterwards, traced the unstable gait to gear teeth distorted by an underpowered laser cutter and to an oversized stride that the idealized simulation missed.",
+        },
+        {
+          zh: "<strong>解決馬達轉速不同步：</strong>相同電壓下兩顆驅動馬達轉速不同。我建立直流馬達轉移函數，得出無載穩態時轉速與電壓呈線性關係（ω = aV），量測兩顆馬達的轉速–電壓常數（0.047 vs 0.038 rps/V，相差 21%），再加入校正後的 PWM 補償，讓兩側腿部轉速同步。",
+          en: "<strong>Fixed motor speed mismatch:</strong> the two drive motors ran at different speeds under the same voltage. I modeled the DC motor transfer function — at no-load steady state, speed is linear in voltage (ω = aV) — measured each motor's speed–voltage constant (0.047 vs 0.038 rps/V, a 21% gap), and added a calibrated PWM offset to synchronize both sides.",
+        },
+        {
+          zh: "<strong>驅動電路與韌體：</strong>以 Arduino Uno 搭配 L298N 驅動兩顆 12 V 有刷直流馬達，透過 RC 遙控器（iBus 協定）無線操控，並以左右轉速差實現轉向。",
+          en: "<strong>Drive electronics & firmware:</strong> drove two 12 V brushed DC motors with an L298N driver and an Arduino Uno, controlled wirelessly by an RC transmitter (iBus) with differential steering.",
         },
       ],
-      tags: ["SolidWorks", "Arduino", "PWM", "Motor Control"],
+      tags: ["SolidWorks", "Jansen Linkage", "Laser Cutting", "Arduino", "L298N", "PWM", "DC Motor Modeling"],
       images: [
         { src: "assets/robot-cad.png", alt: { zh: "機器人 SolidWorks 整體結構圖", en: "SolidWorks model of the robot" } },
         { src: "assets/robot-real.png", alt: { zh: "完成的機器人實體", en: "The finished robot" } },
@@ -124,17 +136,24 @@ window.SITE = {
     },
     {
       title: { zh: "LEAP Hand 靈巧手抓取", en: "LEAP Hand Dexterous Grasping" },
-      org: "", // 例如 { zh: "清大電機 · ○○○實驗室", en: "NTHU EE · ○○○ Lab" }
-      period: { zh: "進行中", en: "Ongoing" },
-      role: "",
+      org: { zh: "清大電機 · VSLab", en: "NTHU EE · VSLab" },
+      period: { zh: "2026 – 至今", en: "2026 – Present" },
+      role: { zh: "負責：系統建置與校正", en: "Role: bring-up & calibration" },
       points: [
         {
           zh: '行政院晶創計畫 子計畫四 <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">孫民教授</a>團隊。',
           en: 'Executive Yuan\'s Taiwan Chip-based Industrial Innovation Program (Taiwan CbI), Sub-project 4 — <a href="https://aliensunmin.github.io/" target="_blank" rel="noopener">Prof. Min Sun</a>\'s team.',
         },
-        // { zh: "做了什麼、解決了什麼問題", en: "What I did and the problem it solved" },
+        {
+          zh: "<strong>啟動與校正流程：</strong>為 16 自由度的 LEAP Hand 建立開機初始化與校正流程，比對馬達的指令位置與實際量測到的關節運動。",
+          en: "<strong>Startup & calibration:</strong> built a startup initialization and calibration workflow for the 16-DoF LEAP Hand that checks commanded motor positions against measured joint motion.",
+        },
+        {
+          zh: "<strong>運動學重定向：</strong>開發運動學重定向（retargeting），將人手手指的關節角度映射到機械手的關節。",
+          en: "<strong>Kinematic retargeting:</strong> developed kinematic retargeting that maps human finger joint angles to the robot hand's joints.",
+        },
       ],
-      tags: ["Dexterous Hand", "ML", "VLA"],
+      tags: ["Dexterous Hand", "Calibration", "Retargeting", "ML", "VLA"],
       // 影片：靜音自動循環播放，訪客可用播放列開聲音
       video: { src: "assets/leapdemo.mp4", alt: { zh: "LEAP Hand 抓取展示", en: "LEAP Hand grasping demo" } },
       images: [],
