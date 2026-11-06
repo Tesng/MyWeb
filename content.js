@@ -131,6 +131,8 @@ window.SITE = {
       images: [
         { src: "assets/robot-cad.png", alt: { zh: "機器人 SolidWorks 整體結構圖", en: "SolidWorks model of the robot" } },
         { src: "assets/robot-real.png", alt: { zh: "完成的機器人實體", en: "The finished robot" } },
+        // wide: true → 橫跨整列、保留原始比例（適合橫向寬圖）
+        { src: "assets/robot-leg-cad.png", wide: true, alt: { zh: "八足底盤與正齒輪傳動 SolidWorks 模型（渲染圖與線條圖）", en: "SolidWorks model of the eight-legged chassis and spur-gear train (rendered and line-drawing views)" } },
       ],
       link: "",
     },

@@ -106,7 +106,7 @@
               <video src="${esc(p.video.src)}" autoplay muted loop playsinline controls aria-label="${esc(t(p.video.alt))}"></video>
               ${t(p.video.alt) ? `<figcaption>${esc(t(p.video.alt))}</figcaption>` : ""}</figure>` : "";
           const gallery = has(p.images) ? `<div class="gallery">${p.images
-            .map((im) => `<figure><img src="${esc(im.src)}" alt="${esc(t(im.alt))}" loading="lazy"><figcaption>${esc(t(im.alt))}</figcaption></figure>`)
+            .map((im) => `<figure${im.wide ? ' class="wide"' : ""}><img src="${esc(im.src)}" alt="${esc(t(im.alt))}" loading="lazy"><figcaption>${esc(t(im.alt))}</figcaption></figure>`)
             .join("")}</div>` : "";
           return `<article class="project">
             <div class="tl-head"><h3>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(t(p.title))}</a>` : esc(t(p.title))}</h3>
