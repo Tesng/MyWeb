@@ -25,7 +25,7 @@ window.SITE = {
     email: "keinett9494@gmail.com",
     // 有的話把網址填進引號裡，沒有就保持空字串，按鈕會自動隱藏
     github: "https://github.com/Tesng",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/kyle-tseng-46a599373",
     cv: "", // 例如 "assets/Resume.pdf"
   },
 
