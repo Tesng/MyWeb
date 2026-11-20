@@ -68,8 +68,10 @@ window.SITE = {
       period: { zh: "2026 – 至今", en: "2026 – Present" },
       logo: "assets/nthu-logo.png",
       details: [
-        // 研究所開始後可以加入：指導教授、實驗室、修課等
-        // { zh: "指導教授：○○○ 教授（○○○實驗室）", en: "Advisor: Prof. ○○○ (○○○ Lab)" },
+        {
+          zh: '指導教授：<a href="https://ai.site.nthu.edu.tw/p/404-1206-131025.php" target="_blank" rel="noopener">孫民 教授</a>（Vision Science Lab, VSLAB）',
+          en: 'Advisor: <a href="https://ai.site.nthu.edu.tw/p/404-1206-131025.php" target="_blank" rel="noopener">Prof. Min Sun</a> (Vision Science Lab, VSLAB)',
+        },
       ],
     },
     {
