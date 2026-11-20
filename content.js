@@ -175,6 +175,14 @@ window.SITE = {
       },
       link: "https://omnigo-website-seven.vercel.app/?page=home",
     },
+    {
+      name: "PaperAgent",
+      desc: {
+        zh: "論文講義網站：把論文 PDF 放進資料夾，AI agent 自動讀完全文、擷取架構圖與關鍵實驗圖，整理成涵蓋研究問題、核心想法、資料流、訓練方式、實驗證據與前後篇脈絡的中文講義，並可在靜態網頁上搜尋與瀏覽。",
+        en: "A paper study-notes site: drop paper PDFs into a folder and an AI agent reads the full text, extracts architecture diagrams and key result figures, and writes Chinese study notes covering the research question, core idea, data flow, training method, evidence, and related prior and follow-up work, all searchable and browsable on a static website.",
+      },
+      link: "https://github.com/Tesng/PaperAgent",
+    },
   ],
 
   skills: [
